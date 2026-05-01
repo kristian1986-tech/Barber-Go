@@ -212,15 +212,54 @@
 
         <input type="date" class="bg-zinc-800 rounded-2xl px-4 py-3 text-white">
 
-        <div class="grid grid-cols-3 gap-2 bg-zinc-800 rounded-2xl p-3">
-          <button class="bg-white text-black rounded-full py-2 font-semibold">09:00</button>
-          <button class="bg-zinc-700 rounded-full py-2">09:30</button>
-          <button class="bg-zinc-700 rounded-full py-2">10:00</button>
-          <button class="bg-zinc-700 rounded-full py-2">10:30</button>
-          <button class="bg-zinc-700 rounded-full py-2">11:00</button>
-          <button class="bg-zinc-700 rounded-full py-2">11:30</button>
-        </div>
 
+
+        <!-- VYBER CAS -->
+        
+<div class="relative md:col-span-2">
+  <button
+    id="timeToggle"
+    type="button"
+    class="w-full bg-zinc-800 rounded-2xl px-5 py-4 flex justify-between items-center text-left"
+  >
+    <span id="selectedTime">Vyberte čas</span>
+    <span>⌄</span>
+  </button>
+
+  <div
+    id="timeDropdown"
+    class="hidden absolute left-0 right-0 mt-3 bg-zinc-900 border border-white/10 rounded-3xl p-4 z-50 shadow-2xl"
+  >
+    <div class="grid grid-cols-3 md:grid-cols-4 gap-3">
+
+      <button class="time-option bg-zinc-800 rounded-full py-3">09:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">09:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">10:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">10:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">11:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">11:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">12:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">12:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">13:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">13:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">14:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">14:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">15:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">15:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">16:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">16:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">17:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">17:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">18:00</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">18:30</button>
+      <button class="time-option bg-zinc-800 rounded-full py-3">19:00</button>
+
+    </div>
+  </div>
+</div>
+        
+
+        
         <input class="bg-zinc-800 rounded-2xl px-4 py-3" placeholder="Jméno a příjmení">
         <input class="bg-zinc-800 rounded-2xl px-4 py-3" placeholder="Telefonní číslo">
 
@@ -265,21 +304,33 @@
   </footer>
 
 
+
 <script>
-const timeButtons = document.querySelectorAll("#rezervace button");
+  
+const timeToggle = document.getElementById("timeToggle");
+const timeDropdown = document.getElementById("timeDropdown");
+const selectedTime = document.getElementById("selectedTime");
+const timeOptions = document.querySelectorAll(".time-option");
 
-timeButtons.forEach(btn => {
+timeToggle.addEventListener("click", () => {
+  timeDropdown.classList.toggle("hidden");
+});
+
+timeOptions.forEach(btn => {
   btn.addEventListener("click", () => {
-    timeButtons.forEach(b => {
-      b.classList.remove("bg-white","text-black");
-      b.classList.add("bg-zinc-700","text-white");
-    });
-
-    btn.classList.remove("bg-zinc-700","text-white");
-    btn.classList.add("bg-white","text-black");
+    selectedTime.textContent = btn.textContent;
+    timeDropdown.classList.add("hidden");
   });
 });
+
+document.addEventListener("click", (e) => {
+  if (!timeToggle.contains(e.target) && !timeDropdown.contains(e.target)) {
+    timeDropdown.classList.add("hidden");
+  }
+});
+  
 </script>
+  
 
   
 </body>
