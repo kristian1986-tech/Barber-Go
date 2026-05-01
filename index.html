@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Go</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen">
+
+  <!-- HEADER -->
+  <header class="px-6 py-5 flex justify-between items-center border-b border-white/10">
+    <h1 class="text-2xl font-bold">Barber Go</h1>
+    <button class="bg-white text-black px-5 py-2 rounded-full font-semibold">
+      Registrovat barber shop
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <main class="px-6 py-24 text-center max-w-5xl mx-auto">
+    <p class="uppercase tracking-[0.3em] text-sm text-zinc-400 mb-4">
+      Rezervujte si prémiový střih okamžitě
+    </p>
+
+    <h2 class="text-5xl md:text-7xl font-bold leading-tight">
+      Najděte svého barbera během pár minut
+    </h2>
+
+    <p class="mt-6 text-zinc-300 text-lg max-w-2xl mx-auto">
+      Prémiová rezervační platforma pro moderní barber shopy a jejich klienty.
+    </p>
+
+    <div class="mt-10 flex gap-4 justify-center flex-wrap">
+      <button class="bg-white text-black px-7 py-3 rounded-full font-semibold">
+        Najít barbera
+      </button>
+
+      <button class="border border-white/20 px-7 py-3 rounded-full font-semibold">
+        Registrovat barber shop
+      </button>
+    </div>
+  </main>
+
+  <!-- SHOPS -->
+  <section class="px-6 pb-20 max-w-6xl mx-auto">
+    <div class="mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+      <h3 class="text-3xl font-bold">Oblíbené barber shopy</h3>
+
+      <input
+        class="w-full md:w-80 bg-zinc-900 border border-white/10 rounded-full px-5 py-3 outline-none"
+        placeholder="Hledat město..."
+      />
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="bg-zinc-900 rounded-3xl p-6 border border-white/10">
+        <div class="h-40 rounded-2xl bg-zinc-800 mb-5"></div>
+        <h4 class="text-xl font-semibold">Elite Fade Studio</h4>
+        <p class="text-zinc-400 mt-2">Premium cuts • Beard styling</p>
+        <button class="mt-5 bg-white text-black px-5 py-2 rounded-full font-semibold">
+          Rezervovat
+        </button>
+      </div>
+
+      <div class="bg-zinc-900 rounded-3xl p-6 border border-white/10">
+        <div class="h-40 rounded-2xl bg-zinc-800 mb-5"></div>
+        <h4 class="text-xl font-semibold">Downtown Barber Club</h4>
+        <p class="text-zinc-400 mt-2">Classic cuts • Fade experts</p>
+        <button class="mt-5 bg-white text-black px-5 py-2 rounded-full font-semibold">
+          Rezervovat
+        </button>
+      </div>
+
+      <div class="bg-zinc-900 rounded-3xl p-6 border border-white/10">
+        <div class="h-40 rounded-2xl bg-zinc-800 mb-5"></div>
+        <h4 class="text-xl font-semibold">Urban Blade</h4>
+        <p class="text-zinc-400 mt-2">Modern barbering</p>
+        <button class="mt-5 bg-white text-black px-5 py-2 rounded-full font-semibold">
+          Rezervovat
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="px-6 pb-24 max-w-4xl mx-auto">
+    <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8">
+      <h3 class="text-3xl font-bold mb-6">Rezervace</h3>
+
+      <div class="grid md:grid-cols-2 gap-4">
+
+        <select class="bg-zinc-800 rounded-2xl px-4 py-3">
+          <option>Vyberte službu</option>
+          <option>Haircut</option>
+          <option>Beard trim</option>
+          <option>Hair + Beard</option>
+        </select>
+
+        <select class="bg-zinc-800 rounded-2xl px-4 py-3">
+          <option>Vyberte barbera</option>
+          <option>Martin</option>
+          <option>Petr</option>
+          <option>David</option>
+        </select>
+
+        <input type="date" class="bg-zinc-800 rounded-2xl px-4 py-3">
+
+        <div class="grid grid-cols-3 gap-2 bg-zinc-800 rounded-2xl p-3">
+          <button class="bg-white text-black rounded-full py-2 font-semibold">09:00</button>
+          <button class="bg-zinc-700 rounded-full py-2">09:30</button>
+          <button class="bg-zinc-700 rounded-full py-2">10:00</button>
+          <button class="bg-zinc-700 rounded-full py-2">10:30</button>
+          <button class="bg-zinc-700 rounded-full py-2">11:00</button>
+          <button class="bg-zinc-700 rounded-full py-2">11:30</button>
+        </div>
+
+        <input class="bg-zinc-800 rounded-2xl px-4 py-3" placeholder="Jméno">
+        <input class="bg-zinc-800 rounded-2xl px-4 py-3" placeholder="Telefon">
+
+      </div>
+
+      <button class="mt-6 w-full bg-white text-black px-6 py-3 rounded-full font-semibold">
+        Potvrdit rezervaci
+      </button>
+    </div>
+  </section>
+
+</body>
+</html>
