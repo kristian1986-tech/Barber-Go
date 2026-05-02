@@ -312,11 +312,12 @@
 
 
 <script>
-  
 const timeToggle = document.getElementById("timeToggle");
 const timeDropdown = document.getElementById("timeDropdown");
 const selectedTime = document.getElementById("selectedTime");
 const timeOptions = document.querySelectorAll(".time-option");
+
+let chosenTime = "";
 
 timeToggle.addEventListener("click", () => {
   timeDropdown.classList.toggle("hidden");
@@ -324,7 +325,8 @@ timeToggle.addEventListener("click", () => {
 
 timeOptions.forEach(btn => {
   btn.addEventListener("click", () => {
-    selectedTime.textContent = btn.textContent;
+    chosenTime = btn.textContent;
+    selectedTime.textContent = chosenTime;
     timeDropdown.classList.add("hidden");
   });
 });
@@ -334,7 +336,49 @@ document.addEventListener("click", (e) => {
     timeDropdown.classList.add("hidden");
   }
 });
-  
+
+document.getElementById("confirmBooking").addEventListener("click", () => {
+  const booking = {
+    service: document.getElementById("service").value,
+    specialist: document.getElementById("specialist").value,
+    date: document.getElementById("date").value,
+    time: chosenTime,
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value
+  };
+
+  if (
+    !booking.service ||
+    !booking.specialist ||
+    !booking.date ||
+    !booking.time ||
+    !booking.name ||
+    !booking.phone
+  ) {
+    alert("Vyplňte prosím všechny údaje.");
+    return;
+  }
+
+  let bookings =
+    JSON.parse(localStorage.getItem("bookings")) || [];
+
+  bookings.push(booking);
+
+  localStorage.setItem(
+    "bookings",
+    JSON.stringify(bookings)
+  );
+
+  alert("Rezervace byla úspěšně odeslána.");
+
+  document.getElementById("service").selectedIndex = 0;
+  document.getElementById("specialist").selectedIndex = 0;
+  document.getElementById("date").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("phone").value = "";
+  chosenTime = "";
+  selectedTime.textContent = "Vyberte čas";
+});
 </script>
   
 
