@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Přihlášení admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center px-6">
+
+  <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 w-full max-w-md">
+    <h1 class="text-4xl font-bold text-center mb-8">
+      Admin přihlášení
+    </h1>
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Zadejte heslo"
+      class="w-full bg-zinc-800 rounded-2xl px-5 py-4 mb-5 outline-none"
+    >
+
+    <button
+      id="loginBtn"
+      class="w-full bg-white text-black py-4 rounded-full font-semibold"
+    >
+      Přihlásit se
+    </button>
+
+    <p id="error" class="text-red-500 text-center mt-4 hidden">
+      Nesprávné heslo
+    </p>
+  </div>
+
+<script>
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const password = document.getElementById("password").value;
+
+  if (password === "1234") {
+    localStorage.setItem("adminLogged", "yes");
+    window.location.href = "admin.html";
+  } else {
+    document.getElementById("error").classList.remove("hidden");
+  }
+});
+</script>
+
+</body>
+</html>
